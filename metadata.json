@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Débouchage Toulon - L\u0027Artisanat Local Expert",
+  "description": "Expertise chirurgicale en débouchage et assainissement dans le Var. Spécialiste des réseaux anciens de Toulon et curage littoral. Clarté stratégique, preuve technique par vidéo et tarif fixe 99€.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
