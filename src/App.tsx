@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  BrowserRouter as Router, 
-  Routes, 
-  Route, 
-  Link, 
-  useParams, 
-  useLocation 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useParams,
+  useLocation
 } from 'react-router-dom';
+import AdCampaignDashboard from './AdCampaignDashboard.tsx';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Phone, 
@@ -1995,6 +1996,7 @@ export default function App() {
             } />
             <Route path="/ville/:slug" element={<CityPage />} />
             <Route path="/expertise/:expertiseSlug/:citySlug" element={<ExpertisePage />} />
+            <Route path="/agent/ads" element={<AdCampaignDashboard />} />
           </Routes>
         </main>
         <Footer />
