@@ -24,7 +24,7 @@ export function Header() {
       <Conteneur className="relative flex h-16 items-center justify-between gap-4">
         <Logo />
         <nav aria-label="Navigation principale" className="hidden md:block">
-          <ul className="flex items-center gap-8 text-sm font-semibold text-ink-soft">
+          <ul className="flex items-center gap-6 text-sm font-semibold text-ink-soft">
             {NAVIGATION.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="hover:text-ink">{l.libelle}</Link>

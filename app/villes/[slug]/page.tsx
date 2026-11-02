@@ -6,6 +6,9 @@ import { BandeauAppel } from "@/components/sections/BandeauAppel";
 import { GrilleServices } from "@/components/sections/GrilleServices";
 import { GrilleTarifs } from "@/components/sections/GrilleTarifs";
 import { Hero } from "@/components/sections/Hero";
+import { PageVilleCocon } from "@/components/cocon/PageVilleCocon";
+import { getCocon } from "@/lib/cocon";
+import { remplir } from "@/lib/format";
 import { SectionFaq } from "@/components/sections/SectionFaq";
 import { Conteneur } from "@/components/ui/Conteneur";
 import { FilAriane } from "@/components/ui/FilAriane";
@@ -18,12 +21,16 @@ import { jsonLdService, pageMetadata } from "@/lib/seo";
 type Params = { params: { slug: string } };
 
 export const dynamicParams = false;
+// Les pages des villes du cocon affichent des données en direct (météo, eau).
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return VILLES.map((v) => ({ slug: v.slug }));
 }
 
 export function generateMetadata({ params }: Params): Metadata {
+  const cocon = getCocon(params.slug);
+  if (cocon) return pageMetadata({ titre: cocon.meta.titre, description: remplir(cocon.meta.description), chemin: `/villes/${cocon.slug}` });
   const v = getVille(params.slug);
   if (!v) return {};
   return pageMetadata({
@@ -48,6 +55,8 @@ function faqsVille(v: Ville): Faq[] {
 }
 
 export default function PageVille({ params }: Params) {
+  const cocon = getCocon(params.slug);
+  if (cocon) return <PageVilleCocon ville={cocon} />;
   const v = getVille(params.slug);
   if (!v) notFound();
   const voisines = v.voisines.map(getVille).filter((x): x is Ville => Boolean(x));

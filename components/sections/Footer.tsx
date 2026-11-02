@@ -43,8 +43,11 @@ export function Footer() {
         </div>
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} {PARAMETRE.NOM_COMMERCIAL}</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/tarifs" className="hover:text-white">Tarifs</Link>
+            <Link href="/materiel" className="hover:text-white">Matériel</Link>
+            <Link href="/equipe" className="hover:text-white">Équipe</Link>
+            <Link href="/charte" className="hover:text-white">Charte</Link>
             <Link href="/mentions-legales" className="hover:text-white">Mentions légales</Link>
           </div>
         </div>

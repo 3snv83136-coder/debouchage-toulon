@@ -12,6 +12,7 @@ import { IconeService } from "@/components/ui/IconeService";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { TARIF } from "@/lib/config";
 import { SERVICES, getService } from "@/lib/data/services";
+import { villesPourService } from "@/lib/cocon";
 import { euros, remplir } from "@/lib/format";
 import { jsonLdService, pageMetadata } from "@/lib/seo";
 
@@ -34,6 +35,7 @@ export default function PageService({ params }: Params) {
   if (!s) notFound();
   const tarif = TARIF[s.tarif];
   const autres = SERVICES.filter((x) => x.slug !== s.slug).slice(0, 4);
+  const declinaisons = villesPourService(s.slug);
 
   return (
     <>
@@ -86,6 +88,16 @@ export default function PageService({ params }: Params) {
               <BoutonAppel className="mt-6 w-full" />
               <Link href="/tarifs" className="mt-4 block text-center text-sm text-white/70 underline-offset-4 hover:underline">Voir tous les tarifs</Link>
             </div>
+            {declinaisons.length > 0 && (
+              <div className="mt-6 rounded-3xl border border-ink/10 p-6">
+                <p className="font-bold text-ink">{s.court} près de chez vous</p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {declinaisons.map(({ ville }) => (
+                    <li key={ville.slug}><Link href={`/villes/${ville.slug}/${s.slug}`} className="text-sea-700 hover:underline">{s.court} à {ville.nom}</Link></li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className="mt-6 rounded-3xl border border-ink/10 p-6">
               <p className="font-bold text-ink">Autres interventions</p>
               <ul className="mt-3 space-y-2 text-sm">
