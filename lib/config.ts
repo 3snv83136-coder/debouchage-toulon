@@ -20,7 +20,7 @@ export const PARAMETRE = {
   EMAIL: "",
 } as const;
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://debouchage-toulon.vercel.app").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://debouchage-toulon.fr").replace(/\/$/, "");
 
 export type TarifKey = "manuel" | "mecanique" | "hydrocurage";
 

@@ -113,8 +113,18 @@ export function qualifierDurete(th: number): { libelle: string; impact: string }
 
 export type Commune = { population: number; surfaceKm2: number; densite: number };
 
+/** Valeurs API Géo relevées le 2 novembre 2026, utilisées si l'API ne répond pas. */
+const COMMUNES_SECOURS: Record<string, { population: number; surface: number }> = {
+  "83126": { population: 63732, surface: 2348.37 },
+  "83062": { population: 26476, surface: 1560.47 },
+  "83144": { population: 23719, surface: 1543.45 },
+  "83129": { population: 37109, surface: 2668.64 },
+  "83069": { population: 55858, surface: 13361.08 },
+};
+
 export async function getCommune(insee: string): Promise<Commune | null> {
-  const d = await json<{ population?: number; surface?: number }>(`https://geo.api.gouv.fr/communes/${insee}?fields=population,surface`, 7 * JOUR);
+  const api = await json<{ population?: number; surface?: number }>(`https://geo.api.gouv.fr/communes/${insee}?fields=population,surface`, 7 * JOUR);
+  const d = api?.population && api.surface ? api : COMMUNES_SECOURS[insee];
   if (!d?.population || !d.surface) return null;
   const surfaceKm2 = d.surface / 100;
   return { population: d.population, surfaceKm2: Math.round(surfaceKm2 * 10) / 10, densite: Math.round(d.population / surfaceKm2) };

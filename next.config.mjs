@@ -28,6 +28,8 @@ const nextConfig = {
   async redirects() {
     return [
       { source: "/ville/:slug", destination: "/villes/:slug", permanent: true },
+      // Ancien site WordPress sur debouchage-toulon.fr
+      { source: "/contact", destination: "/", permanent: true },
       ...Object.entries(ANCIENS_SERVICES).map(([ancien, destination]) => ({
         source: `/expertise/${ancien}/:ville`,
         destination,
