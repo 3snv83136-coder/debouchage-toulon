@@ -16,15 +16,15 @@ export function Header() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:hidden" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-            Urgence {PARAMETRE.HORAIRES}
+            Chemisage sans casse · Débouchage {PARAMETRE.HORAIRES}
           </p>
-          <p className="hidden sm:block text-white/70">Prix annoncé avant le déplacement</p>
+          <p className="hidden font-bold text-lime sm:block">Devis gratuit après passage caméra</p>
         </Conteneur>
       </div>
       <Conteneur className="relative flex h-16 items-center justify-between gap-4">
         <Logo />
-        <nav aria-label="Navigation principale" className="hidden md:block">
-          <ul className="flex items-center gap-6 text-sm font-semibold text-ink-soft">
+        <nav aria-label="Navigation principale" className="hidden lg:block">
+          <ul className="flex items-center gap-5 text-sm font-bold text-ink">
             {NAVIGATION.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="hover:text-ink">{l.libelle}</Link>
@@ -33,7 +33,7 @@ export function Header() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
-          <BoutonAppel className="hidden sm:inline-flex" />
+          <BoutonAppel className="hidden sm:inline-flex" libelle="Devis gratuit" />
           <MenuMobile />
         </div>
       </Conteneur>

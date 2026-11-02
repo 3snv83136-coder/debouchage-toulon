@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { Manrope, Unbounded } from "next/font/google";
 import { BarreAppelMobile } from "@/components/sections/BarreAppelMobile";
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
@@ -9,16 +9,16 @@ import { jsonLdEntreprise } from "@/lib/seo";
 import "./globals.css";
 
 const sans = Manrope({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
-const display = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-display", display: "swap" });
+const display = Unbounded({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: `Débouchage Toulon 24h/24 | ${PARAMETRE.NOM_COMMERCIAL}`, template: `%s | ${PARAMETRE.NOM_COMMERCIAL}` },
-  description: `Canalisation, WC ou évier bouché à Toulon ? Technicien sur place en moins de ${PARAMETRE.DELAI_INTERVENTION}, ${PARAMETRE.HORAIRES}. Prix fixe annoncé avant le déplacement.`,
+  title: { default: `Chemisage canalisation sans casse à Toulon et dans le Var | ${PARAMETRE.NOM_COMMERCIAL}`, template: `%s | ${PARAMETRE.NOM_COMMERCIAL}` },
+  description: "Chemisage de canalisation sans tranchée à Toulon, La Seyne, Hyères, La Garde, La Valette et Six-Fours : on répare fissures, racines et fonte corrodée de l'intérieur, après débouchage et inspection caméra. Devis gratuit.",
   formatDetection: { telephone: false },
 };
 
-export const viewport: Viewport = { themeColor: "#0B1F33" };
+export const viewport: Viewport = { themeColor: "#13072E" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

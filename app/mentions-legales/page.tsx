@@ -2,6 +2,7 @@ import { EnTetePage } from "@/components/sections/EnTetePage";
 import { Conteneur } from "@/components/ui/Conteneur";
 import { PARAMETRE, SITE_URL } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo";
+import { PHOTOS } from "@/lib/photos";
 
 export const metadata = { ...pageMetadata({ titre: "Mentions légales", description: `Mentions légales du site ${PARAMETRE.NOM_COMMERCIAL}.`, chemin: "/mentions-legales" }), robots: { index: false } };
 
@@ -27,6 +28,15 @@ export default function MentionsLegales() {
           <div>
             <h2 className="text-xl font-bold text-ink">Hébergement</h2>
             <p className="mt-3">Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-ink">Crédits photos</h2>
+            <p className="mt-3">Les photos du site sont des illustrations sous licence libre, issues de Wikimedia Commons. Elles ne représentent pas nos propres chantiers.</p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm">
+              {Object.values(PHOTOS).map((p) => (
+                <li key={p.id}>{p.legende} : © {p.auteur}, <a href={p.source} rel="noopener" className="underline">source</a>, {p.licenceUrl ? <a href={p.licenceUrl} rel="noopener license" className="underline">{p.licence}</a> : p.licence}</li>
+              ))}
+            </ul>
           </div>
           <div>
             <h2 className="text-xl font-bold text-ink">Données personnelles</h2>

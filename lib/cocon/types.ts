@@ -8,7 +8,12 @@ export type MaterielId =
   | "hydrocureuse-portative"
   | "camera-inspection"
   | "tete-coupe-racines"
-  | "localisateur-sonde";
+  | "localisateur-sonde"
+  | "gaine-resine"
+  | "inverseur"
+  | "packer"
+  | "robot-fraiseur"
+  | "train-uv";
 
 export type Saison = "hiver" | "printemps" | "ete" | "automne";
 

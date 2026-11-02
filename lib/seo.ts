@@ -22,6 +22,8 @@ export function jsonLdEntreprise() {
     "@type": "Plumber",
     "@id": BUSINESS_ID,
     name: PARAMETRE.NOM_COMMERCIAL,
+    description: "Chemisage de canalisation sans tranchée, débouchage et inspection caméra dans le Var.",
+    slogan: PARAMETRE.SLOGAN,
     url: SITE_URL,
     telephone: telE164(),
     priceRange: `${PRIX_MIN} € - ${PRIX_MAX} €`,

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Ban, Check, ShieldAlert } from "lucide-react";
+import { Photo } from "@/components/photos/Photo";
+import { PHOTOS_MATERIEL } from "@/lib/photos";
 import { Bloc, Paragraphes } from "@/components/cocon/Texte";
 import { BandeauAppel } from "@/components/sections/BandeauAppel";
 import { EnTetePage } from "@/components/sections/EnTetePage";
@@ -42,6 +44,7 @@ export default function PageUnMateriel({ params }: Params) {
       <Conteneur className="grid gap-12 py-14 lg:grid-cols-[1fr_340px]">
         <article className="min-w-0 space-y-14">
           <Bloc titre="Comment ça marche"><Paragraphes items={m.principe} /></Bloc>
+          {PHOTOS_MATERIEL[m.id] && <Photo id={PHOTOS_MATERIEL[m.id]!} tailles="(min-width: 1024px) 60vw, 100vw" />}
           <Bloc titre="Quand on l'utilise">
             <ul className="grid gap-3 sm:grid-cols-2">
               {m.quandOnLUtilise.map((x) => <li key={x} className="flex gap-2 rounded-2xl bg-sea-50 p-4 text-ink"><Check aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-sea-600" />{x}</li>)}

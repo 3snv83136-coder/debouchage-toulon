@@ -13,7 +13,7 @@ export function MenuMobile() {
   useEffect(() => setOuvert(false), [chemin]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         onClick={() => setOuvert((o) => !o)}

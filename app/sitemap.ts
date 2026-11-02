@@ -4,6 +4,11 @@ import { SERVICES } from "@/lib/data/services";
 import { VILLES } from "@/lib/data/villes";
 import { COCONS } from "@/lib/cocon";
 import { MATERIEL } from "@/lib/cocon/materiel";
+import { CHANTIERS } from "@/lib/chemisage/chantiers";
+import { DEFAUTS } from "@/lib/chemisage/defauts";
+import { MATERIAUX } from "@/lib/chemisage/materiaux";
+import { TECHNIQUES } from "@/lib/chemisage/techniques";
+import { VILLES_CHEMISAGE } from "@/lib/chemisage/villes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const maintenant = new Date();
@@ -15,6 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
   return [
     page("/", 1),
+    page("/chemisage", 1),
+    ...["etapes", "comparatif", "prix", "faq", "techniques", "defauts", "materiaux", "chantiers"].map((x) => page(`/chemisage/${x}`, 0.9)),
+    ...TECHNIQUES.map((t) => page(`/chemisage/techniques/${t.slug}`, 0.8)),
+    ...DEFAUTS.map((d) => page(`/chemisage/defauts/${d.slug}`, 0.8)),
+    ...MATERIAUX.map((m) => page(`/chemisage/materiaux/${m.slug}`, 0.7)),
+    ...CHANTIERS.map((c) => page(`/chemisage/chantiers/${c.slug}`, 0.6)),
+    page("/chemisage-canalisation", 0.9),
+    ...VILLES_CHEMISAGE.flatMap((v) => [page(`/chemisage-canalisation/${v.slug}`, 0.9), ...v.quartiers.map((q) => page(`/chemisage-canalisation/${v.slug}/${q.slug}`, 0.7))]),
     page("/tarifs", 0.8),
     page("/services", 0.8),
     page("/villes", 0.8),

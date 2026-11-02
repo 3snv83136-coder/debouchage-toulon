@@ -2,6 +2,9 @@ import { PARAMETRE, SITE_URL, TARIFS_ORDONNES } from "@/lib/config";
 import { SERVICES } from "@/lib/data/services";
 import { VILLES } from "@/lib/data/villes";
 import { euros, remplir } from "@/lib/format";
+import { TECHNIQUES } from "@/lib/chemisage/techniques";
+import { VILLES_CHEMISAGE } from "@/lib/chemisage/villes";
+import { GUIDE } from "@/lib/chemisage/guide";
 
 export const dynamic = "force-static";
 
@@ -13,10 +16,18 @@ export function GET() {
     "",
     `Téléphone : ${PARAMETRE.TEL_PRINCIPAL}`,
     "",
+    "## Chemisage de canalisation (activité principale)",
+    GUIDE.definition[0] ?? "",
+    `- [Guide complet du chemisage](${SITE_URL}/chemisage)`,
+    ...TECHNIQUES.map((t) => `- [${t.nom}](${SITE_URL}/chemisage/techniques/${t.slug}) : ${t.accroche}`),
+    "",
+    "## Chemisage par ville",
+    ...VILLES_CHEMISAGE.map((v) => `- [Chemisage ${v.nom}](${SITE_URL}/chemisage-canalisation/${v.slug}) : ${v.accroche}`),
+    "",
     "## Tarifs (TTC, déplacement inclus)",
     ...TARIFS_ORDONNES.map((t) => `- ${t.titre} : ${euros(t.prix)} (garantie ${t.garantie})`),
     "",
-    "## Services",
+    "## Débouchage et inspection caméra (porte d'entrée)",
     ...SERVICES.map((s) => `- [${s.titre}](${SITE_URL}/services/${s.slug}) : ${remplir(s.accroche)}`),
     "",
     "## Zones d'intervention",

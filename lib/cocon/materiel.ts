@@ -152,6 +152,93 @@ export const MATERIEL: Materiel[] = [
     limites: ["Précision réduite à grande profondeur ou sous des structures métalliques"],
     precautions: ["Marquage au sol temporaire, sans dégradation"],
   },
+  {
+    id: "gaine-resine",
+    nom: "Gaine de chemisage et résine",
+    court: "Gaine & résine",
+    role: "Le cœur du chemisage : une gaine souple imprégnée de résine qui devient, une fois durcie, une canalisation neuve.",
+    principe: [
+      "La gaine est un tube souple en feutre polyester ou en fibre de verre, recouvert d'un film étanche. Elle est imprégnée de résine juste avant la pose.",
+      "Une fois plaquée contre la paroi et durcie, la résine transforme la gaine en un tube rigide, sans joint, collé à l'intérieur de l'ancienne canalisation.",
+    ],
+    caracteristiques: [
+      { label: "Supports", valeur: "Feutre polyester ou fibre de verre" },
+      { label: "Résines", valeur: "Époxy, polyester, vinylester, silicate selon les systèmes" },
+      { label: "Épaisseur", valeur: "Quelques millimètres, selon le diamètre et l'usage" },
+      { label: "Diamètres", valeur: "Des petites évacuations domestiques aux collecteurs" },
+    ],
+    quandOnLUtilise: ["Chemisage continu", "Manchettes", "Colonnes d'immeuble"],
+    limites: ["Réduit légèrement le diamètre intérieur", "Ne passe pas dans une canalisation effondrée"],
+    precautions: ["Imprégnation homogène sur toute la longueur", "Respect des temps et températures de durcissement du fabricant"],
+  },
+  {
+    id: "inverseur",
+    nom: "Inverseur (tambour d'inversion)",
+    court: "Inverseur",
+    role: "L'appareil qui retourne la gaine comme une chaussette et la fait avancer dans la canalisation sous pression.",
+    principe: [
+      "La gaine imprégnée est enroulée dans un tambour étanche. L'extrémité est fixée à la sortie, puis on met le tambour sous pression d'air.",
+      "La gaine se retourne et se déroule dans la canalisation, face résinée contre la paroi, à vitesse contrôlée.",
+    ],
+    caracteristiques: [
+      { label: "Énergie", valeur: "Air comprimé (ou eau selon les systèmes)" },
+      { label: "Usage", valeur: "Branchements, colonnes, canalisations sous dalle" },
+    ],
+    quandOnLUtilise: ["Chemisage par inversion", "Accès par un seul côté"],
+    limites: ["Demande un point d'accès compatible avec l'appareil"],
+    precautions: ["Pression surveillée en continu"],
+  },
+  {
+    id: "packer",
+    nom: "Packer (ballon de manchette)",
+    court: "Packer",
+    role: "Un ballon gonflable qui transporte la manchette jusqu'au défaut et la plaque contre la paroi pendant le durcissement.",
+    principe: [
+      "La manchette imprégnée est enroulée autour du packer dégonflé. Le packer est poussé dans la canalisation jusqu'au défaut, à la distance mesurée par la caméra.",
+      "Il est ensuite gonflé et maintenu sous pression le temps que la résine durcisse, puis dégonflé et retiré.",
+    ],
+    caracteristiques: [
+      { label: "Usage", valeur: "Réparations ponctuelles (manchettes)" },
+      { label: "Positionnement", valeur: "Guidé par caméra et compteur de distance" },
+    ],
+    quandOnLUtilise: ["Fissure isolée", "Joint ouvert", "Entrée de racines localisée"],
+    limites: ["Une manchette par passage"],
+    precautions: ["Positionnement contrôlé avant gonflage"],
+  },
+  {
+    id: "robot-fraiseur",
+    nom: "Robot fraiseur",
+    court: "Robot fraiseur",
+    role: "Un robot téléguidé avec caméra et fraise, qui rouvre les raccordements recouverts par la gaine.",
+    principe: [
+      "Le robot avance dans la canalisation chemisée. Le technicien le pilote à distance en regardant l'image de sa caméra.",
+      "Au droit de chaque raccordement repéré avant le chemisage, la fraise découpe la gaine pour rouvrir le passage, puis ébavure les bords.",
+    ],
+    caracteristiques: [
+      { label: "Commande", valeur: "Pilotage à distance avec caméra embarquée" },
+      { label: "Usage", valeur: "Colonnes, collecteurs" },
+    ],
+    quandOnLUtilise: ["Réouverture des piquages d'une colonne", "Réouverture des branchements d'un collecteur"],
+    limites: ["Repérage préalable indispensable"],
+    precautions: ["Contrôle caméra de chaque réouverture"],
+  },
+  {
+    id: "train-uv",
+    nom: "Train de lampes UV",
+    court: "Lampes UV",
+    role: "Un chariot de lampes ultraviolettes qui durcit les gaines en fibre de verre en avançant à l'intérieur.",
+    principe: [
+      "Les gaines en fibre de verre sont imprégnées d'une résine qui durcit sous la lumière ultraviolette. Le train de lampes est tiré lentement dans la gaine gonflée.",
+      "Une caméra embarquée et des capteurs de température permettent de contrôler le durcissement en direct.",
+    ],
+    caracteristiques: [
+      { label: "Durcissement", valeur: "Rapide, à vitesse d'avancement contrôlée" },
+      { label: "Usage", valeur: "Diamètres moyens à grands" },
+    ],
+    quandOnLUtilise: ["Chemisage par tractage de gaines en fibre de verre"],
+    limites: ["Matériel plus lourd"],
+    precautions: ["Vitesse et température surveillées"],
+  },
 ];
 
 export function getMateriel(id: string): Materiel | undefined {

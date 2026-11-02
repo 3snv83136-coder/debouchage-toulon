@@ -115,6 +115,7 @@ export type Commune = { population: number; surfaceKm2: number; densite: number 
 
 /** Valeurs API Géo relevées le 2 novembre 2026, utilisées si l'API ne répond pas. */
 const COMMUNES_SECOURS: Record<string, { population: number; surface: number }> = {
+  "83137": { population: 179116, surface: 4405.92 },
   "83126": { population: 63732, surface: 2348.37 },
   "83062": { population: 26476, surface: 1560.47 },
   "83144": { population: 23719, surface: 1543.45 },

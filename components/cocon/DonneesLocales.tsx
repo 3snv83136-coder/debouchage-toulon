@@ -9,7 +9,7 @@ const COULEURS = {
 } as const;
 
 /** Bloc de données publiques en direct (météo, dureté de l'eau, population). */
-export async function DonneesLocales({ ville }: { ville: VilleCocon }) {
+export async function DonneesLocales({ ville }: { ville: Pick<VilleCocon, "nom" | "insee" | "coords"> }) {
   const [meteo, eau, commune] = await Promise.all([
     getMeteo(ville.coords.lat, ville.coords.lon),
     getEau(ville.insee),

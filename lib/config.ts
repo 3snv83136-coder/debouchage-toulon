@@ -6,12 +6,13 @@
  */
 
 export const PARAMETRE = {
-  NOM_COMMERCIAL: "Expert Débouchage Toulon",
-  NOM_COURT: "Expert Débouchage",
+  NOM_COMMERCIAL: "Chemisage Canalisation Sans Casse",
+  NOM_COURT: "Chemisage Canalisation",
   TEL_PRINCIPAL: "04 22 54 15 85",
   DELAI_INTERVENTION: "30 minutes",
   HORAIRES: "24h/24, 7j/7",
   ZONE: "Toulon et l'aire toulonnaise (Var, 83)",
+  SLOGAN: "On répare vos canalisations de l'intérieur. Sans casser.",
   GEO: { latitude: 43.1242, longitude: 5.928 },
   // À compléter avant mise en ligne (mentions légales)
   RAISON_SOCIALE: "",
@@ -20,7 +21,7 @@ export const PARAMETRE = {
   EMAIL: "",
 } as const;
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://debouchage-toulon.fr").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://debouchage-toulon.vercel.app").replace(/\/$/, "");
 
 export type TarifKey = "manuel" | "mecanique" | "hydrocurage";
 
